@@ -1,3 +1,4 @@
+//this file fetches products and sigle product using asynchonous function
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 
