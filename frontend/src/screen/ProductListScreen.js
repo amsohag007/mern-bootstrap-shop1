@@ -9,7 +9,7 @@ import {
   deleteProduct,
   createProduct,
 } from "../actions/productActions";
-import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+//import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
 
 const ProductListScreen = ({ history, match }) => {
   const dispatch = useDispatch();
@@ -36,9 +36,9 @@ const ProductListScreen = ({ history, match }) => {
   const { userInfo } = userLogin;
 
   useEffect(() => {
-    dispatch({ type: PRODUCT_CREATE_RESET });
+    // dispatch({ type: PRODUCT_CREATE_RESET });
 
-    if (!userInfo.isAdmin) {
+    if (!userInfo || !userInfo.isAdmin) {
       history.push("/login");
     }
 
