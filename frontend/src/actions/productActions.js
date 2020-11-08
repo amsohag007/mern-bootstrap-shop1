@@ -21,11 +21,11 @@ import {
 } from "../constants/productConstansts.js";
 
 //actions for products on HomeScreen
-export const listProducts = () => async (dispatch) => {
+export const listProducts = (keyword = "") => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get("/api/products");
+    const { data } = await axios.get(`/api/products?keyword=${keyword}`);
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
