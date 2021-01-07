@@ -23,7 +23,30 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      <h1>Latest products</h1>
+      {/* <h1>Top products</h1> */}
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant="danger">{error}</Message>
+      ) : (
+        <>
+          <Row>
+            {products.map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
+              </Col>
+            ))}
+          </Row>
+          <Paginate
+            pages={pages}
+            page={page}
+            keyword={keyword ? keyword : ""}
+          />
+        </>
+      )}
       {/* <h1>Latest products</h1> */}
+      <h1>Top products</h1>
       {loading ? (
         <Loader />
       ) : error ? (
